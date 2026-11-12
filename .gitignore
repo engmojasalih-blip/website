@@ -1,0 +1,14 @@
+# إعدادات Claude المحلية الخاصة بالجهاز
+.claude/settings.local.json
+
+# ملفات النظام والمحرر
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+*.tmp
+~$*
+
+# ملفات العميل الأصلية (صور، شعار) تُحفظ خارج المستودع إن كانت كبيرة أو سرية
+# assets/images/*
+# assets/brand/*

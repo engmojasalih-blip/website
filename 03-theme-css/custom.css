@@ -1,0 +1,571 @@
+/* ==========================================================================
+   custom.css — هوية "دار الحلا" (نموذج تجريبي) على قالب رائد (Raed) في سلة
+   --------------------------------------------------------------------------
+   الحالة      : مسودة أولى (v0.1) — لم تُجرَّب على متجر حي بعد.
+   مكان اللصق  : لوحة سلة ← المتجر وقنوات البيع ← تصميم المتجر ← (تخصيص النسخة)
+                 لنسخة الثيم ← تبويب (تخصيص متقدم) ← محرر CSS.
+   شروط العمل  : باقة سلة برو أو سلة سبيشل + نطاق (دومين) خاص بالمتجر
+                 (04-store-setup/salla-plans-verification.md القسم 3).
+   القالب      : رائد Raed Twig — المستودع الرسمي github.com/SallaApp/theme-raed
+                 commit d49c0edc61ed40dfb5e7117c1c4003465c7f5a62 (فرع master، 2026-11-11)
+                 package.json: version 1.358.0
+                 مكونات سلة: @salla.sa/twilight-components ^2.14.551 (فُحص الإصدار 2.14.612)
+   تاريخ الفحص : 2026-11-12
+   تنبيه       : قبل اللصق احفظ نسخة من محتوى الخانة الحالي (حتى لو فارغة) باسم
+                 custom-backup-YYYY-MM-DD.css داخل 03-theme-css/. وبعد أي تحديث
+                 للقالب من سلة أعد فحص المحددات (راجع selector-map.md).
+
+   قواعد هذا الملف
+   1) ما يُضبط من إعدادات القالب في اللوحة لا يُكتب هنا: اللون الأساسي
+      (--color-primary)، والخط، وتثبيت زر الإضافة في الجوال، والشريط العلوي
+      الداكن، والتذييل الداكن، وتوحيد ارتفاع البطاقات. راجع README.md.
+   2) كل قاعدة بجانبها الملف المصدر في مستودع رائد أو مكونات سلة.
+      اختصارات المصادر:
+        [raed]  = github.com/SallaApp/theme-raed @ d49c0edc
+        [twc]   = @salla.sa/twilight-components@2.14.612 /dist/collection/components/
+   3) القواعد غير المؤكدة في القسم الأخير "⚠ يُتحقق على المتجر الحي" وهي معلّقة.
+   4) لا !important، ولا إخفاء لأي عنصر وظيفي.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   0) الخط — اختياري، معطّل افتراضياً
+   فعّله فقط إن لم يكن "IBM Plex Sans Arabic" ضمن قائمة خطوط القالب في اللوحة.
+   يجب أن يبقى @import أول سطر فعلي في الخانة (قبل أي قاعدة)، وإلا يتجاهله المتصفح.
+   المصدر: [raed] src/views/layouts/master.twig  (:root { --font-main: '{{theme.font.name}}' })
+           [raed] tailwind.config.js             (fontFamily.sans = var(--font-main), ...)
+   --------------------------------------------------------------------------
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap");
+:root { --font-main: var(--dh-font); }
+   -------------------------------------------------------------------------- */
+
+
+/* ==========================================================================
+   1) المتغيرات (من 02-design/style-guide.md) وربطها بمتغيرات رائد
+   ========================================================================== */
+:root {
+  /* --- الخط (style-guide §3). لا يُفعَّل إلا عبر القسم 0 --- */
+  --dh-font: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", Tahoma, "Geeza Pro", "Noto Sans Arabic", sans-serif;
+
+  /* --- الهوية (style-guide §2) ---
+     اللون الأساسي يُضبط من اللوحة (لون المتجر = #4E2E1E)، ورائد يكتبه في
+     --color-primary و--color-primary-dark  ([raed] master.twig).
+     نقرأ منه هنا بدل الكتابة فوقه، والقيمة بعد الفاصلة احتياط فقط. */
+  --dh-primary: var(--color-primary, #4E2E1E);
+  --dh-primary-dark: var(--color-primary-dark, #3B2216);
+  --dh-accent: #C58A43;         /* كراميل: زخرفة فقط، لا نص */
+  --dh-accent-soft: #F3D9A4;    /* خلفية شارة "الأكثر طلباً" */
+  --dh-accent-text: #8A5A1F;    /* روابط "عرض الكل" — 5.5:1 على الكريمي */
+
+  /* --- زر الشراء والحالات (لا مقابل له في إعدادات رائد، فيُضبط هنا) --- */
+  --dh-cta: #2E6A4C;            /* أبيض عليه 6.4:1 */
+  --dh-cta-hover: #245A3F;      /* 8.1:1 */
+  --dh-cta-active: #1C4932;
+  --dh-on-cta: #FFFFFF;
+  --dh-sale: #A93C3C;           /* أبيض عليه 6.2:1 */
+
+  /* --- الخلفيات والنصوص والحدود --- */
+  --dh-bg: #FBF6EE;
+  --dh-surface: #FFFFFF;
+  --dh-surface-alt: #F4EADB;
+  --dh-surface-soft: #F8EFE3;
+  --dh-text: #2B1B12;           /* 15.4:1 على الكريمي */
+  --dh-text-muted: #6B5646;     /* 6.4:1 على الكريمي */
+  --dh-text-inverse: #FBF6EE;
+  --dh-text-inverse-muted: #D9C7B3; /* 7.4:1 على الشوكولاتة */
+  --dh-border: #E8DCCB;
+  --dh-border-strong: #8F7A68;  /* 4.1:1 على الأبيض */
+  --dh-focus: #8A5A1F;
+
+  /* --- المقياس الطباعي (style-guide §3) --- */
+  --dh-fs-xs: 0.75rem;
+  --dh-fs-sm: 0.875rem;
+  --dh-fs-base: 1rem;
+  --dh-fs-md: 1.125rem;
+  --dh-fs-lg: 1.25rem;
+  --dh-fs-xl: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
+  --dh-fs-2xl: clamp(1.625rem, 1.25rem + 1.6vw, 2.25rem);
+  --dh-fs-hero: clamp(1.875rem, 1.2rem + 3vw, 3.25rem);
+  --dh-lh-tight: 1.35;
+
+  /* --- الزوايا والظلال (style-guide §5) --- */
+  --dh-radius-sm: 8px;
+  --dh-radius-md: 14px;
+  --dh-radius-lg: 20px;
+  --dh-radius-xl: 28px;
+  --dh-radius-pill: 999px;
+  --dh-shadow-sm: 0 1px 2px rgba(59, 34, 22, 0.06), 0 2px 8px rgba(59, 34, 22, 0.05);
+  --dh-shadow-md: 0 6px 24px rgba(59, 34, 22, 0.10);
+  --dh-shadow-lg: 0 18px 44px rgba(59, 34, 22, 0.16);
+  --dh-shadow-cta: 0 6px 16px rgba(46, 106, 76, 0.25);
+
+  /* --- المسافات (style-guide §4) --- */
+  --dh-space-1: 0.25rem;
+  --dh-space-2: 0.5rem;
+  --dh-space-3: 0.75rem;
+  --dh-space-4: 1rem;
+
+  /* --- ربط بمتغيرات رائد الموجودة (تعديل القيمة لا المحددات) --- */
+  --main-text-color: var(--dh-text);   /* [raed] src/assets/styles/01-settings/global.scss — لون نص body (reset.scss) */
+  --color-text: var(--dh-text-muted);  /* [raed] 01-settings/global.scss — النص الرمادي؛ يقرؤه [twc] salla-cart-summary/salla-cart-summary.css */
+  --s-radius: var(--dh-radius-md);     /* [raed] layouts/master.twig — زاوية أزرار وحقول مكونات سلة ([twc] salla-button.css، salla-product-options.css) */
+}
+
+
+/* ==========================================================================
+   2) عام
+   ========================================================================== */
+
+/* خلفية كريمية بدل bg-gray-50 — [raed] src/assets/styles/02-generic/common.scss (body)، والكلاس theme-raed من layouts/master.twig */
+body.theme-raed {
+  background-color: var(--dh-bg);
+}
+
+/* حلقة تركيز ظاهرة بلوحة المفاتيح: رائد يعطّل outline في Tailwind — [raed] tailwind.config.js (corePlugins.outline: false) */
+body.theme-raed :focus-visible {
+  outline: 3px solid var(--dh-focus);
+  outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   3) الخط
+   لا شيء مفعّل هنا: يُختار من إعدادات القالب (ميزة "fonts" في [raed] twilight.json).
+   البديل عند غياب IBM Plex Sans Arabic من القائمة: القسم 0 أعلى الملف.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   4) الرأس
+   ========================================================================== */
+
+/* الشريط العلوي بلون الشوكولاتة بدل الأسود (#1D1F1F).
+   يتطلب تفعيل "شريط علوي داكن" (topnav_is_dark) من إعدادات القالب، وهو الافتراضي.
+   — [raed] src/assets/styles/04-components/header.scss (.topnav-is-dark .top-navbar)، والكلاس على body من layouts/master.twig */
+body.topnav-is-dark .top-navbar {
+  background-color: var(--dh-primary);
+  color: var(--dh-text-inverse-muted);
+}
+
+/* أيقونة السلة والحساب بلون الهوية — [raed] 04-components/header.scss (.header-btn__icon) و components/header/header.twig */
+.main-nav-container .header-btn__icon {
+  color: var(--dh-primary);
+  border-color: var(--dh-border);
+}
+
+/* عداد السلة بالأخضر (style-guide: CTA يُستخدم لعداد السلة) بدل bg-red-800
+   — [raed] 04-components/header.scss (.s-cart-summary-count) + [twc] salla-cart-summary/salla-cart-summary.js */
+salla-cart-summary .s-cart-summary-count {
+  background-color: var(--dh-cta);
+  color: var(--dh-on-cta);
+}
+
+/* روابط القائمة الرئيسية على الحاسوب — [raed] 04-components/menus.scss (.main-menu li.root-level > a) و assets/js/partials/main-menu.js */
+@media (min-width: 1024px) {
+  .main-menu > li.root-level > a {
+    color: var(--dh-primary);
+  }
+}
+
+
+/* ==========================================================================
+   5) البانر وأقسام الرئيسية
+   ========================================================================== */
+
+/* طبقة التعتيم فوق صورة السلايدر: دافئة بدل الأسود 60%
+   — [raed] 04-components/home-blocks.scss (.s-block--hero-slider .overlay-bg:after) و components/home/enhanced-slider.twig */
+.s-block--hero-slider .overlay-bg::after {
+  background-color: rgba(59, 34, 22, 0.55);
+}
+
+/* عنوان البانر بالمقياس المرن — [raed] components/home/enhanced-slider.twig (.home-slider__content h2) */
+.s-block--hero-slider .home-slider__content h2 {
+  font-size: var(--dh-fs-hero);
+  line-height: var(--dh-lh-tight);
+}
+
+/* عناوين الأقسام — [raed] 04-components/home-blocks.scss (.s-block__title h2) و components/home/featured-products-style1.twig */
+.s-block__title h2 {
+  color: var(--dh-primary);
+  font-size: var(--dh-fs-lg);
+}
+
+/* رابط "عرض الكل" بلون الكراميل الغامق — [raed] 04-components/home-blocks.scss (.s-block__display-all) */
+.s-block__display-all {
+  color: var(--dh-accent-text);
+  opacity: 1;
+}
+
+/* بطاقات الروابط السريعة (تُستخدم للمناسبات) — [raed] 04-components/home-blocks.scss (.slide--cat-entry) و components/home/main-links.twig */
+.slide--cat-entry {
+  background-color: var(--dh-surface);
+  border-color: var(--dh-border);
+  border-radius: var(--dh-radius-lg);
+  color: var(--dh-primary);
+}
+
+/* مزايا المتجر — [raed] 04-components/home-blocks.scss (.s-block--features__item) و components/home/store-features.twig */
+.s-block--features__item {
+  border-radius: var(--dh-radius-lg);
+  box-shadow: var(--dh-shadow-sm);
+}
+
+.s-block--features__item h2 {
+  color: var(--dh-primary);
+}
+
+.s-block--features__item p {
+  color: var(--dh-text-muted);
+}
+
+@media (min-width: 768px) {
+  .s-block__title h2 {
+    font-size: var(--dh-fs-2xl);
+    line-height: var(--dh-lh-tight);
+  }
+}
+
+
+/* ==========================================================================
+   6) بطاقة المنتج
+   العنصر custom-salla-product-card — [raed] src/assets/js/partials/product-card.js
+   والأنماط الأصلية في [raed] 03-elements/product-card.scss و 04-components/product.scss
+   ========================================================================== */
+
+/* البطاقة: زاوية 20px وظل دافئ وحد زخرفي */
+custom-salla-product-card.s-product-card-entry {
+  border: 1px solid rgba(78, 46, 30, 0.05);
+  border-radius: var(--dh-radius-lg);
+  box-shadow: var(--dh-shadow-sm);
+}
+
+custom-salla-product-card.s-product-card-entry:hover {
+  box-shadow: var(--dh-shadow-md);
+}
+
+/* خلفية الصورة فاتحة بدل الرمادي، وزاويتها العلوية تطابق البطاقة.
+   (.s-product-card-image عليها overflow-hidden أصلاً في رائد، فلا نضيف قصاً على البطاقة كلها) */
+custom-salla-product-card.s-product-card-vertical .s-product-card-image {
+  background-color: var(--dh-surface-soft);
+  border-radius: var(--dh-radius-lg) var(--dh-radius-lg) 0 0;
+}
+
+/* اسم المنتج: سطران كحد أقصى ليبقى ارتفاع البطاقات متساوياً — (.s-product-card-content-title a) */
+custom-salla-product-card .s-product-card-content-title a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: var(--dh-text);
+}
+
+custom-salla-product-card .s-product-card-content-title a:hover {
+  color: var(--dh-primary);
+}
+
+/* السعر العادي بلون الهوية — (.s-product-card-price) */
+custom-salla-product-card .s-product-card-price {
+  color: var(--dh-primary);
+  font-size: var(--dh-fs-md);
+}
+
+/* الوصف المختصر — (.s-product-card-content-subtitle) */
+custom-salla-product-card .s-product-card-content-subtitle {
+  color: var(--dh-text-muted);
+}
+
+@media (min-width: 768px) {
+  custom-salla-product-card .s-product-card-content-title a {
+    font-size: var(--dh-fs-base);
+  }
+}
+
+
+/* ==========================================================================
+   7) أزرار الشراء (الأخضر الفستقي)
+   الطريقة: نغيّر متغيرات اللون داخل salla-add-product-button فقط، فيتلوّن زر
+   salla-button الداخلي بالأخضر دون لمس اللون الأساسي للمتجر.
+   — [twc] salla-add-product-button/salla-add-product-button.js (يُنشئ salla-button بلون primary)
+   — [twc] salla-button/salla-button.css (.s-button-primary و.s-button-primary-outline تقرأ --color-primary)
+   ========================================================================== */
+salla-add-product-button {
+  --color-primary: var(--dh-cta);
+  --color-primary-dark: var(--dh-cta-hover);
+  --color-primary-reverse: var(--dh-on-cta);
+}
+
+/* شكل الكبسولة والخط العريض — [twc] salla-button.css (.s-button-btn) */
+salla-add-product-button .s-button-btn {
+  min-height: 48px;
+  border-radius: var(--dh-radius-pill);
+  font-weight: 700;
+}
+
+/* زر صفحة المنتج (solid) — [raed] pages/product/single.twig (.sticky-product-bar__btn) + [twc] salla-button.css (.s-button-primary) */
+salla-add-product-button .s-button-primary {
+  box-shadow: var(--dh-shadow-cta);
+}
+
+salla-add-product-button .s-button-primary:hover {
+  background-color: var(--dh-cta-hover);
+  opacity: 1;
+}
+
+salla-add-product-button .s-button-primary:active {
+  background-color: var(--dh-cta-active);
+}
+
+/* زر البطاقة: رائد يعرضه outline (fill="outline")، والتصميم يريده ممتلئاً
+   — [raed] assets/js/partials/product-card.js (.s-product-card-content-footer > salla-add-product-button fill="outline")
+   — [twc] salla-button.css (.s-button-primary-outline). المنتج النافد يأخذ s-button-light-outline فلا يتأثر */
+custom-salla-product-card .s-product-card-content-footer .s-button-primary-outline {
+  min-height: 44px;
+  background-color: var(--dh-cta);
+  border-color: var(--dh-cta);
+  color: var(--dh-on-cta);
+  fill: var(--dh-on-cta);
+}
+
+custom-salla-product-card .s-product-card-content-footer .s-button-primary-outline:hover {
+  background-color: var(--dh-cta-hover);
+  border-color: var(--dh-cta-hover);
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   8) الشارات
+   رائد لا يملك إلا شارة واحدة على البطاقة: "عنوان الترويج" (promotion_title)
+   الذي يكتبه التاجر في المنتج. نعطيه شكل "الأكثر طلباً".
+   شارة الخصم بالنسبة غير موجودة في بطاقة رائد؛ يظهر السعر المشطوب فقط.
+   ========================================================================== */
+
+/* شارة البطاقة — [raed] assets/js/partials/product-card.js (.s-product-card-promotion-title)، والأصل bg-red-800 في 04-components/product.scss */
+custom-salla-product-card .s-product-card-promotion-title {
+  margin-inline-start: var(--dh-space-2);
+  border-radius: var(--dh-radius-pill);
+  background-color: var(--dh-accent-soft);
+  color: var(--dh-primary);
+  font-size: var(--dh-fs-xs);
+}
+
+/* الشارة نفسها في معرض صفحة المنتج — [raed] pages/product/single.twig (.promotion-title) و 04-components/slider.scss */
+.container--product-details .promotion-title {
+  background-color: var(--dh-accent-soft);
+  color: var(--dh-primary);
+}
+
+
+/* ==========================================================================
+   9) صفحة المنتج — [raed] src/views/pages/product/single.twig
+   زر الإضافة الثابت في الجوال موجود في رائد (إعداد "تثبيت زر الإضافة والكمية
+   أسفل شاشة الجوال" sticky_add_to_cart)، فلا نبنيه هنا.
+   ========================================================================== */
+
+/* المعرض بزاوية 28px — (.details-slider) */
+.container--product-details .details-slider {
+  border-radius: var(--dh-radius-xl);
+}
+
+/* اسم المنتج — (h1[data-testid="store-product-title"]) */
+.container--product-details [data-testid="store-product-title"] {
+  color: var(--dh-primary);
+  font-size: var(--dh-fs-2xl);
+  line-height: var(--dh-lh-tight);
+}
+
+/* السعر بلون الهوية، والسعر بعد الخصم بلون الخصم — (.price-wrapper .total-price، .price_is_on_sale) */
+.product-form .price-wrapper .total-price {
+  color: var(--dh-primary);
+  font-size: var(--dh-fs-xl);
+}
+
+.product-form .price_is_on_sale .total-price {
+  color: var(--dh-sale);
+}
+
+/* أقسام النموذج (السعر، الكمية) بزاوية 14px — (form.product-form > section) */
+.product-form > section {
+  border-radius: var(--dh-radius-md);
+}
+
+/* --- الخيارات — [twc] salla-product-options/salla-product-options.css و.js
+       و[raed] pages/partials/product/options.twig --- */
+salla-product-options .s-product-options-wrapper {
+  border-radius: var(--dh-radius-md);
+}
+
+salla-product-options .s-product-options-option-label {
+  color: var(--dh-text);
+}
+
+/* القوائم المنسدلة والحقول: ارتفاع 48px وحد أوضح. حالة الخطأ (.has-error) تبقى أقوى */
+salla-product-options .s-form-control {
+  min-height: 48px;
+  border-color: var(--dh-border-strong);
+  border-radius: var(--dh-radius-md);
+}
+
+/* الخيارات بشكل أزرار (رقائق) — (.s-product-options-grid-mode-span) */
+salla-product-options .s-product-options-grid-mode-span {
+  min-height: 48px;
+  min-width: 64px;
+  border-color: var(--dh-border-strong);
+  border-radius: var(--dh-radius-md);
+  background-color: var(--dh-surface);
+  color: var(--dh-text);
+}
+
+salla-product-options .s-product-options-grid-mode-span:hover {
+  background-color: var(--dh-surface-soft);
+}
+
+/* الخيار المحدد: إطار بني وخلفية بيج. (رائد يستخدم --color-primary-rgb غير المعرّف، فتضيع الخلفية) */
+salla-product-options .s-product-options-grid-mode input:checked + div {
+  border-color: var(--dh-primary);
+  background-color: var(--dh-surface-soft);
+  box-shadow: inset 0 0 0 1px var(--dh-primary);
+  color: var(--dh-primary);
+}
+
+/* التركيز بلوحة المفاتيح على الرقائق (الدائرة الأصلية مخفية بصرياً من سلة نفسها وتبقى تعمل) */
+salla-product-options .s-product-options-grid-mode input:focus-visible + div {
+  outline: 3px solid var(--dh-focus);
+  outline-offset: 2px;
+}
+
+/* --- الكمية: عداد كبسولي — [twc] salla-quantity-input/salla-quantity-input.js (.s-quantity-input-container)
+       و[raed] 04-components/product.scss --- */
+.sticky-product-bar salla-quantity-input .s-quantity-input-container {
+  border: 1px solid var(--dh-border-strong);
+  border-radius: var(--dh-radius-pill);
+}
+
+/* --- شريط الشراء الثابت في الجوال: ظل دافئ وحد علوي فقط، دون لمس الموضع والحركة
+       — [raed] 04-components/product.scss (@media max-width:640px .is-sticky-product-bar .sticky-product-bar) --- */
+@media (max-width: 640px) {
+  body.is-sticky-product-bar .sticky-product-bar {
+    border-top: 1px solid var(--dh-border);
+    box-shadow: 0 -6px 24px rgba(59, 34, 22, 0.10);
+  }
+}
+
+
+/* ==========================================================================
+   10) صفحة التصنيف — [raed] src/views/pages/product/index.twig
+   ملاحظة: رائد (هذا الإصدار) لا يعرض وصف التصنيف في الصفحة، فلا قاعدة لطيّه.
+   ========================================================================== */
+
+/* عنوان التصنيف — (#page-main-title) */
+#page-main-title {
+  color: var(--dh-primary);
+  font-size: var(--dh-fs-xl);
+}
+
+/* قائمة الترتيب — (#product-filter.form-input)، والأصل في [raed] 03-elements/form.scss */
+#product-filter {
+  min-height: 44px;
+  border-color: var(--dh-border-strong);
+  border-radius: var(--dh-radius-pill);
+}
+
+/* زر فتح الفلاتر في الجوال: مساحة لمس 44px — (.filters-trigger) */
+.container--products-list .filters-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+
+/* ==========================================================================
+   11) التذييل — [raed] components/footer/footer.twig و 04-components/footer.scss
+   يتطلب "الوضع الداكن" للتذييل (footer_is_dark) مفعّلاً من إعدادات القالب.
+   لا يُخفى شيء: الرقم الضريبي، والشهادة، وشارات الثقة، ووسائل الدفع تبقى كما هي.
+   ========================================================================== */
+body.footer-is-dark .store-footer {
+  background-color: var(--dh-primary-dark);
+  color: var(--dh-text-inverse-muted);
+}
+
+body.footer-is-dark .store-footer__inner {
+  background-color: var(--dh-primary-dark);
+  border-bottom-color: rgba(217, 199, 179, 0.2);
+}
+
+body.footer-is-dark .store-footer h3 {
+  color: var(--dh-text-inverse);
+}
+
+/* نص الحقوق: رائد يلوّنه text-gray-700 حتى على الخلفية الداكنة، فيضعف التباين */
+body.footer-is-dark .copyright-text p {
+  color: var(--dh-text-inverse-muted);
+}
+
+
+/* ==========================================================================
+   12) زر واتساب
+   ليس جزءاً من قالب رائد (لا يوجد في src/views ولا src/assets). يأتي من تطبيق
+   أو إعداد في المتجر، فمحدده غير معروف. راجع القسم الأخير.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   ⚠ يُتحقق على المتجر الحي
+   كل ما يلي معلّق (لا يعمل). افحص العنصر بأدوات المطور (F12) على المتجر بعد
+   التركيز، وصحّح المحدد إن لزم، ثم أخرج القاعدة من التعليق واحدة واحدة.
+   ==========================================================================
+
+-- (أ) صورة البطاقة مربعة 1:1 --
+   المحددات مؤكدة ([raed] 03-elements/product-card.scss)، لكن تفاعلها مع إعداد
+   "توحيد ارتفاع البطاقات" (s-product-card-fit-height: h-44 / sm:flex-1) غير مجرّب.
+   جرّب الإعداد من اللوحة أولاً (cover)، ولا تفعّل هذه إلا إن بقيت الصور غير متساوية.
+
+custom-salla-product-card.s-product-card-vertical .s-product-card-image {
+  flex: none;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+-- (ب) الشريط الإعلاني أعلى الصفحة (توصيل في نفس اليوم) --
+   غير موجود في قوالب رائد؛ قد تحقنه سلة عبر hook 'body:start'. يوجد مكوّن باسم
+   salla-advertisement في [twc]، ولم نتأكد أنه هو ما يظهر في المتجر.
+
+salla-advertisement {
+  background-color: var(--dh-primary);
+  color: var(--dh-text-inverse);
+}
+
+-- (ج) زر واتساب العائم --
+   ضع المحدد الفعلي بدل [محدد-زر-واتساب] بعد فحصه. الهدف: رفعه فوق شريط الشراء
+   الثابت في صفحة المنتج على الجوال، لا إخفاؤه.
+
+@media (max-width: 640px) {
+  body.is-sticky-product-bar [محدد-زر-واتساب] {
+    bottom: 120px;
+  }
+}
+
+-- (د) عناوين سلايدر المنتجات في الرئيسية --
+   الكلاس .s-slider-block__title مذكور في [raed] 04-components/home-blocks.scss
+   لكن بنيته الداخلية تولّدها salla-products-slider ولم تُفحص.
+
+.s-slider-block__title h2 {
+  color: var(--dh-primary);
+}
+
+-- (هـ) شريط الشراء الثابت على التابلت (641–1023px) --
+   رائد يثبّته حتى 640px فقط. التصميم يريده ثابتاً على التابلت أيضاً.
+   نقل قواعد الموضع والحركة من product.scss يحتاج تجربة حية حتى لا يتعارض مع
+   s-add-product-button-with-sticky-bar داخل مكوّن سلة. يُترك كما هو في المسودة الأولى.
+
+-- (و) لوحة الفلاتر salla-filters ورقائقها --
+   أنماطها الداخلية من [twc] salla-filters/salla-filters.css ولم تُفحص بنيتها
+   على متجر فيه فلاتر مفعّلة. لا قواعد بعد.
+
+-- (ز) سعر البطاقة بعد الخصم بلون #A93C3C --
+   رائد يفرض text-red-800 مع !important على (.s-product-card-sale-price h4) في
+   04-components/product.scss. تجاوزه يحتاج !important؛ تُرك عمداً لأن red-800
+   (#991B1B) قريب من لون التصميم وتباينه أعلى.
+   ========================================================================== */
