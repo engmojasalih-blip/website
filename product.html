@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بوكس معمول فاخر | دار الحلا — نموذج تصميم تجريبي</title>
+  <meta name="description" content="بوكس معمول فاخر بحشوات التمر والفستق والجوز، مع تغليف هدايا وتوصيل بموعد تختاره. صفحة منتج ضمن نموذج تصميم تجريبي.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#4E2E1E">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-product">
+
+<!-- أيقونات SVG (Sprite) — تُستدعى بـ <use href="#i-..."> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.1a4.3 4.3 0 0 1 7.5 2.7C19.5 15.4 12 20 12 20Z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3.5V16h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.2 2.8 2.8L16 9.5"/></symbol>
+  <symbol id="i-fresh" viewBox="0 0 24 24"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14Z"/><path d="M5 19 13 11"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8C10.5 5 7 4.5 7 6.8 7 8 9 8 12 8Zm0 0c1.5-3 5-3.5 5-1.2C17 8 15 8 12 8Z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v6c0 4.4 3.2 7.9 7.5 9 4.3-1.1 7.5-4.6 7.5-9V6L12 3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M9.2 8.2c-.4 3.2 3.4 7 6.6 6.6l.7-1.8-2.1-1-1 .9a4.6 4.6 0 0 1-2.4-2.4l.9-1-1-2.1-1.7.8Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M14 3.5a7.5 7.5 0 1 0 6.5 11.2A6.5 6.5 0 0 1 14 3.5Z"/><path d="m18 4 .6 1.4L20 6l-1.4.6L18 8l-.6-1.4L16 6l1.4-.6Z"/></symbol>
+  <symbol id="i-rings" viewBox="0 0 24 24"><circle cx="9" cy="15" r="5"/><circle cx="15" cy="15" r="5"/><path d="m12 3 2 2-2 2-2-2 2-2Z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11v4.5c0 1.5 2.7 3 6 3s6-1.5 6-3V11"/><path d="M21 9.5V15"/></symbol>
+  <symbol id="i-baby" viewBox="0 0 24 24"><path d="M9.5 3h5M10.5 3v3M13.5 3v3"/><path d="M8 9a3 3 0 0 1 2.5-3h3A3 3 0 0 1 16 9v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9Z"/><path d="M8 12.5h3M8 16h3"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-palm" viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11C10 7.5 6.5 6.5 3 8c3 0 5 1 6.5 3"/><path d="M12 11c2-3.5 5.5-4.5 9-3-3 0-5 1-6.5 3"/><path d="M12 11c-.8-4-3.5-6.5-6.5-7 2 1.2 3.6 3.4 4.3 6.5"/><path d="M12 11c.8-4 3.5-6.5 6.5-7-2 1.2-3.6 3.4-4.3 6.5"/><path d="M8.5 21h7"/></symbol>
+  <symbol id="i-star8" viewBox="0 0 40 40"><g transform="translate(20 20)"><rect x="-12" y="-12" width="24" height="24" rx="1.5"/><rect x="-12" y="-12" width="24" height="24" rx="1.5" transform="rotate(45)"/><circle r="4.6"/></g></symbol>
+</svg>
+
+<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+
+<!-- شريط التنبيه بأن الصفحة نموذج -->
+<div class="demo-bar" role="note">نموذج تصميم تجريبي — الأسماء والأسعار والصور توضيحية</div>
+
+<!-- شريط الإعلان العلوي -->
+<div class="announce">
+  <p><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-truck"/></svg> <span><strong>توصيل في نفس اليوم</strong> داخل المدينة للطلبات قبل الساعة 2 ظهراً</span></p>
+</div>
+
+<!-- رأس الصفحة -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-row">
+      <button class="icon-btn nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" data-nav-open>
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+        <span class="visually-hidden">فتح القائمة</span>
+      </button>
+
+      <a class="logo" href="index.html" aria-label="دار الحلا — الصفحة الرئيسية">
+        <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#i-star8" fill="none" stroke="#C58A43" stroke-width="2.6"/></svg>
+        <span class="logo__text"><span class="logo__name">دار الحلا</span><span class="logo__tag">حلويات وهدايا</span></span>
+      </a>
+
+      <div class="header-actions">
+        <a class="icon-btn" href="#" data-demo-link aria-label="حسابي">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>
+        </a>
+        <a class="icon-btn" href="#" data-demo-link data-cart-link aria-label="السلة، 0 منتجات">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bag"/></svg>
+          <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+        </a>
+      </div>
+
+      <form class="search" role="search" action="#" data-search>
+        <label class="visually-hidden" for="q">ابحث في المتجر</label>
+        <input class="search__input" id="q" name="q" type="search" placeholder="ابحث عن معمول، تورتة، بوكس هدايا…" autocomplete="off">
+        <button class="search__btn" type="submit"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span class="visually-hidden">بحث</span></button>
+      </form>
+    </div>
+
+    <div class="nav-overlay" data-nav-overlay></div>
+    <nav class="nav" id="site-nav" aria-label="القائمة الرئيسية">
+      <div class="nav__head">
+        <span class="nav__title">الأقسام</span>
+        <button class="icon-btn" type="button" data-nav-close>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+          <span class="visually-hidden">إغلاق القائمة</span>
+        </button>
+      </div>
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">الرئيسية</a></li>
+        <li><a class="nav__link" href="category.html">المعمول</a></li>
+        <li><a class="nav__link" href="index.html#best-sellers">التورت والكيك</a></li>
+        <li><a class="nav__link" href="index.html#best-sellers">الحلويات الشرقية</a></li>
+        <li><a class="nav__link" href="category.html">التمور المحشية</a></li>
+        <li><a class="nav__link" href="index.html#occasions">المناسبات</a></li>
+        <li><a class="nav__link nav__link--highlight" href="index.html#occasions">بوكسات الهدايا</a></li>
+        <li><a class="nav__link" href="index.html#faq">الأسئلة الشائعة</a></li>
+      </ul>
+      <div class="nav__extra">
+        <p>تحتاج مساعدة في اختيار هدية؟ راسلنا على واتساب.</p>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="breadcrumb container" aria-label="مسار التصفح">
+    <ol>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="category.html">المعمول والتمور</a></li>
+      <li><span aria-current="page">بوكس معمول فاخر</span></li>
+    </ol>
+  </nav>
+
+  <div class="container product">
+
+    <!-- معرض الصور -->
+    <section class="gallery" aria-label="صور المنتج">
+      <figure class="gallery__main">
+        <img src="img/maamoul.svg" width="400" height="400" alt="بوكس معمول فاخر مفتوح يضم 9 حبات بحشوات مختلفة" data-gallery-main>
+        <div class="product-card__badges"><span class="badge badge--best">الأكثر طلباً</span></div>
+      </figure>
+      <ul class="gallery__thumbs">
+        <li><button class="thumb" type="button" aria-current="true" data-thumb data-src="img/maamoul.svg" data-alt="بوكس معمول فاخر مفتوح يضم 9 حبات بحشوات مختلفة" aria-label="الصورة 1: البوكس مفتوحاً"><img src="img/maamoul.svg" width="400" height="400" alt=""></button></li>
+        <li><button class="thumb" type="button" aria-current="false" data-thumb data-src="img/maamoul-closed.svg" data-alt="علبة المعمول مغلقة بشريطة بنية وختم ذهبي" aria-label="الصورة 2: العلبة مغلقة للإهداء"><img src="img/maamoul-closed.svg" width="400" height="400" alt="" loading="lazy"></button></li>
+        <li><button class="thumb" type="button" aria-current="false" data-thumb data-src="img/maamoul-piece.svg" data-alt="حبة معمول عن قرب ونصف حبة تظهر حشوة التمر" aria-label="الصورة 3: الحشوة عن قرب"><img src="img/maamoul-piece.svg" width="400" height="400" alt="" loading="lazy"></button></li>
+        <li><button class="thumb" type="button" aria-current="false" data-thumb data-src="img/maamoul-tray.svg" data-alt="صينية ضيافة نحاسية عليها حبات معمول مرتبة" aria-label="الصورة 4: على صينية الضيافة"><img src="img/maamoul-tray.svg" width="400" height="400" alt="" loading="lazy"></button></li>
+      </ul>
+    </section>
+
+    <!-- معلومات المنتج والشراء -->
+    <div class="product__info">
+      <div>
+        <p class="product-card__cat">معمول · صناعة يومية</p>
+        <h1 class="product__title">بوكس معمول فاخر</h1>
+      </div>
+
+      <div class="product__meta">
+        <a class="rating" href="#reviews"><span class="rating__stars" aria-hidden="true">★★★★★</span><strong>4.9</strong><span>(126 تقييماً)</span></a>
+        <span class="stock">متوفر · يُحضَّر يوم التوصيل</span>
+      </div>
+
+      <div class="product__price">
+        <p class="price"><span class="price__now"><span data-price>185</span>&nbsp;<span class="currency">ر.س</span></span></p>
+        <p class="vat-note">السعر شامل ضريبة القيمة المضافة</p>
+        <p class="bnpl">أو 4 دفعات بقيمة <strong><span data-bnpl>46.25</span> ر.س</strong> بدون فوائد مع <span class="pay pay--tabby">تابي</span></p>
+      </div>
+
+      <p class="product__lead">معمول بالسمن والسميد، محشو بالتمر والفستق والجوز، مرتّب في بوكس فاخر يصلح للضيافة والإهداء.</p>
+
+      <form class="product__form" action="#" data-product-form data-product="بوكس معمول فاخر">
+
+        <fieldset class="opt">
+          <legend>عدد القطع</legend>
+          <div class="chips">
+            <div class="chip"><input type="radio" name="size" id="size-12" value="12" data-price="99" data-label="12&nbsp;قطعة"><label for="size-12">12&nbsp;قطعة <small>99&nbsp;ر.س</small></label></div>
+            <div class="chip"><input type="radio" name="size" id="size-24" value="24" data-price="185" data-label="24&nbsp;قطعة" checked><label for="size-24">24&nbsp;قطعة <small>185&nbsp;ر.س</small></label></div>
+            <div class="chip"><input type="radio" name="size" id="size-36" value="36" data-price="265" data-label="36&nbsp;قطعة"><label for="size-36">36&nbsp;قطعة <small>265&nbsp;ر.س</small></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="opt">
+          <legend>نوع التغليف</legend>
+          <div class="choices">
+            <div class="choice"><input type="radio" name="wrap" id="wrap-classic" value="classic" data-price="0" checked><label for="wrap-classic"><span><span class="choice__name">علبة كلاسيكية</span><span class="choice__desc">علبة كريمية بختم ذهبي</span></span><span class="choice__price">مشمولة</span></label></div>
+            <div class="choice"><input type="radio" name="wrap" id="wrap-gift" value="gift" data-price="25" data-label="علبة هدايا"><label for="wrap-gift"><span><span class="choice__name">علبة هدايا بشريطة</span><span class="choice__desc">علبة صلبة بشريطة وبطاقة إهداء</span></span><span class="choice__price">+25&nbsp;ر.س</span></label></div>
+            <div class="choice"><input type="radio" name="wrap" id="wrap-tray" value="tray" data-price="60" data-label="صينية ضيافة"><label for="wrap-tray"><span><span class="choice__name">صينية ضيافة نحاسية</span><span class="choice__desc">تُقدَّم كما هي، وتبقى هدية</span></span><span class="choice__price">+60&nbsp;ر.س</span></label></div>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="gift-msg">رسالة الإهداء <span class="opt__hint">(اختياري — تُطبع على بطاقة)</span></label>
+          <textarea class="textarea" id="gift-msg" name="gift_message" maxlength="150" placeholder="مثال: عيدكم مبارك، وكل عام وأنتم بخير" aria-describedby="gift-help" data-gift-msg></textarea>
+          <div class="field__foot"><span id="gift-help">اكتب اسم المُهدي إن رغبت.</span><span><span data-gift-count>0</span>/150</span></div>
+        </div>
+
+        <!-- ملاحظة للتطبيق: في سلة يُرجَّح أن يكون موعد التوصيل "خيار طلب" في السلة (باقة برو)، لا خياراً داخل صفحة المنتج. راجع wireframes.md -->
+        <div class="field-row">
+          <div class="field">
+            <label for="delivery-date">تاريخ التوصيل</label>
+            <input class="input" type="date" id="delivery-date" name="delivery_date" aria-describedby="date-help" data-date>
+          </div>
+          <div class="field">
+            <label for="delivery-slot">فترة التوصيل</label>
+            <select class="select" id="delivery-slot" name="delivery_slot">
+              <option>صباحاً (10 ص – 1 م)</option>
+              <option selected>عصراً (4 م – 7 م)</option>
+              <option>مساءً (7 م – 10 م)</option>
+            </select>
+          </div>
+        </div>
+        <p class="opt__hint date-help" id="date-help">التوصيل في نفس اليوم للطلبات قبل الساعة 2 ظهراً.</p>
+
+        <!-- شريط الشراء: يصبح ثابتاً أسفل الشاشة على الجوال -->
+        <div class="buy-bar">
+          <div class="qty">
+            <button type="button" data-step="1" aria-label="زيادة الكمية">+</button>
+            <input type="number" id="qty" name="qty" value="1" min="1" max="20" inputmode="numeric" aria-label="الكمية" data-qty>
+            <button type="button" data-step="-1" aria-label="إنقاص الكمية">−</button>
+          </div>
+          <button class="btn btn--cta btn--lg" type="submit" data-submit>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bag"/></svg>
+            أضف للسلة <span class="buy-bar__total" data-total>185&nbsp;ر.س</span>
+          </button>
+        </div>
+      </form>
+
+      <ul class="trust" aria-label="ضماناتنا">
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-fresh"/></svg>طازج يومياً</li>
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg>توصيل بموعدك</li>
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-gift"/></svg>تغليف هدايا</li>
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg>دفع آمن</li>
+      </ul>
+
+      <ul class="pay-list" aria-label="طرق الدفع المقبولة">
+        <li class="pay pay--mada">مدى</li>
+        <li class="pay pay--apple">Apple Pay</li>
+        <li class="pay pay--visa">VISA</li>
+        <li class="pay pay--mc">Mastercard</li>
+        <li class="pay pay--tabby">تابي</li>
+      </ul>
+
+      <!-- الأوصاف -->
+      <div class="product-details">
+        <details class="acc" open>
+          <summary>الوصف</summary>
+          <div class="acc__body">
+            <p>معمول هش يذوب في الفم، يُخبز صباح يوم التوصيل ويُرشّ بالسكر الناعم. يضم البوكس ثلاث حشوات: تمر بالهيل، وفستق حلبي، وجوز بالقرفة.</p>
+            <p class="note-demo">نص توضيحي، يُستبدل بوصف العميل الفعلي.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>المكونات</summary>
+          <div class="acc__body">
+            <p>سميد، طحين قمح، سمن، سكر، عجوة تمر، فستق حلبي، جوز، هيل، ماء ورد، سكر ناعم.</p>
+            <p class="note-demo">قائمة توضيحية، تُعتمد المكونات الفعلية من العميل.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>مسببات الحساسية</summary>
+          <div class="acc__body">
+            <ul class="allergen" aria-label="يحتوي على">
+              <li>قمح (غلوتين)</li>
+              <li>حليب ومشتقاته</li>
+              <li>مكسرات</li>
+            </ul>
+            <p>يُحضَّر في مطبخ يتعامل مع السمسم والبيض.</p>
+            <p class="note-demo">بيانات توضيحية، تُعتمد من العميل.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>الحفظ والصلاحية</summary>
+          <div class="acc__body">
+            <ul>
+              <li>يُحفظ في علبة محكمة بعيداً عن الحرارة والرطوبة.</li>
+              <li>أفضل طعم خلال 7 أيام من الاستلام، ويمكن تجميده حتى شهر.</li>
+            </ul>
+            <p class="note-demo">مدد توضيحية، تُعتمد من العميل.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>التوصيل والاستبدال</summary>
+          <div class="acc__body">
+            <p>نوصل داخل المدينة في الموعد الذي تختاره. لأن المنتج غذائي طازج، لا يُستبدل إلا إذا وصل تالفاً أو مخالفاً للطلب.</p>
+            <p class="note-demo">صياغة توضيحية، تُعتمد من سياسة العميل.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- التقييمات -->
+  <section class="section section--white" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">تجارب العملاء</p>
+          <h2 class="section-title" id="reviews-title">التقييمات</h2>
+        </div>
+      </div>
+      <div class="rating-summary">
+        <span class="rating-summary__score">4.9</span>
+        <span><span class="rating__stars" aria-hidden="true">★★★★★</span><br><span class="product-card__cat">من 126 تقييماً (أرقام توضيحية)</span></span>
+      </div>
+      <ul class="reviews">
+        <li>
+          <figure class="review">
+            <p class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span><span class="visually-hidden">5 من 5</span></p>
+            <blockquote><p>المعمول طري وحشوة التمر غنية. علبة الهدايا كانت أفخم مما توقعت.</p></blockquote>
+            <figcaption><span class="review__avatar" aria-hidden="true">ر</span><span><span class="review__name">ريم</span><span class="review__meta">الرياض · <span class="badge badge--demo">رأي نموذجي</span></span></span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="review">
+            <p class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span><span class="visually-hidden">5 من 5</span></p>
+            <blockquote><p>طلبت صينية الضيافة للعيد، ووصلت في الفترة المحددة بالضبط.</p></blockquote>
+            <figcaption><span class="review__avatar" aria-hidden="true">م</span><span><span class="review__name">محمد</span><span class="review__meta">الخبر · <span class="badge badge--demo">رأي نموذجي</span></span></span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="review">
+            <p class="rating"><span class="rating__stars" aria-hidden="true">★★★★☆</span><span class="visually-hidden">4 من 5</span></p>
+            <blockquote><p>لذيذ جداً، وأتمنى توفير حجم أصغر للتجربة.</p></blockquote>
+            <figcaption><span class="review__avatar" aria-hidden="true">ه</span><span><span class="review__name">هيا</span><span class="review__meta">مكة · <span class="badge badge--demo">رأي نموذجي</span></span></span></figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- منتجات مقترحة -->
+  <section class="section" aria-labelledby="related-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">يكمّل طلبك</p>
+          <h2 class="section-title" id="related-title">قد يعجبك أيضاً</h2>
+        </div>
+        <a class="link-more" href="category.html">تصفّح المعمول والتمور <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="product-grid product-grid--4">
+        <li>
+          <article class="product-card">
+            <a class="product-card__media" href="#" data-demo-link tabindex="-1" aria-hidden="true">
+              <img src="img/dates.svg" width="400" height="400" alt="طبق تمور محشية باللوز والفستق والجوز" loading="lazy">
+            </a>
+            <button class="wish" type="button" aria-pressed="false" aria-label="أضف التمور المحشية إلى المفضلة"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></button>
+            <div class="product-card__body">
+              <p class="product-card__cat">تمور</p>
+              <h3 class="product-card__title"><a href="#" data-demo-link>تمور محشية فاخرة — 500&nbsp;جم</a></h3>
+              <p class="rating"><span class="rating__stars" aria-hidden="true">★</span><strong aria-hidden="true">4.9</strong><span aria-hidden="true">(97)</span><span class="visually-hidden">التقييم 4.9 من 5 من 97 تقييماً</span></p>
+              <p class="price"><span class="price__now">95&nbsp;<span class="currency">ر.س</span></span></p>
+              <button class="btn btn--cta btn--block" type="button" data-add-to-cart data-product="تمور محشية فاخرة"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bag"/></svg> أضف للسلة</button>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="product-card">
+            <a class="product-card__media" href="#" data-demo-link tabindex="-1" aria-hidden="true">
+              <img src="img/baklava.svg" width="400" height="400" alt="صينية بقلاوة مقطعة معينات ومزينة بالفستق الحلبي" loading="lazy">
+            </a>
+            <div class="product-card__badges"><span class="badge badge--sale">خصم 15%</span></div>
+            <button class="wish" type="button" aria-pressed="false" aria-label="أضف البقلاوة المشكّلة إلى المفضلة"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></button>
+            <div class="product-card__body">
+              <p class="product-card__cat">حلويات شرقية</p>
+              <h3 class="product-card__title"><a href="#" data-demo-link>بقلاوة مشكّلة بالفستق — 1&nbsp;كجم</a></h3>
+              <p class="rating"><span class="rating__stars" aria-hidden="true">★</span><strong aria-hidden="true">4.7</strong><span aria-hidden="true">(63)</span><span class="visually-hidden">التقييم 4.7 من 5 من 63 تقييماً</span></p>
+              <p class="price"><span class="price__now price__now--sale">140&nbsp;<span class="currency">ر.س</span></span><del class="price__old"><span class="visually-hidden">السعر قبل الخصم </span>165&nbsp;ر.س</del></p>
+              <button class="btn btn--cta btn--block" type="button" data-add-to-cart data-product="بقلاوة مشكّلة"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bag"/></svg> أضف للسلة</button>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="product-card">
+            <a class="product-card__media" href="#" data-demo-link tabindex="-1" aria-hidden="true">
+              <img src="img/giftbox.svg" width="400" height="400" alt="علبة هدايا بنية بشريطة ذهبية وأمامها تمرة ومعمول وقطعة بقلاوة" loading="lazy">
+            </a>
+            <div class="product-card__badges"><span class="badge badge--best">الأكثر طلباً</span></div>
+            <button class="wish" type="button" aria-pressed="false" aria-label="أضف بوكس الهدايا المشكّل إلى المفضلة"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></button>
+            <div class="product-card__body">
+              <p class="product-card__cat">هدايا</p>
+              <h3 class="product-card__title"><a href="#" data-demo-link>بوكس هدايا مشكّل</a></h3>
+              <p class="rating"><span class="rating__stars" aria-hidden="true">★</span><strong aria-hidden="true">5.0</strong><span aria-hidden="true">(52)</span><span class="visually-hidden">التقييم 5 من 5 من 52 تقييماً</span></p>
+              <p class="price"><span class="price__now">249&nbsp;<span class="currency">ر.س</span></span></p>
+              <button class="btn btn--cta btn--block" type="button" data-add-to-cart data-product="بوكس هدايا مشكّل"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bag"/></svg> أضف للسلة</button>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="product-card">
+            <a class="product-card__media" href="#" data-demo-link tabindex="-1" aria-hidden="true">
+              <img src="img/cake.svg" width="400" height="400" alt="تورتة شوكولاتة بطبقات كريمة وصوص شوكولاتة وكرز" loading="lazy">
+            </a>
+            <div class="product-card__badges"><span class="badge badge--new">جديد</span></div>
+            <button class="wish" type="button" aria-pressed="false" aria-label="أضف تورتة الشوكولاتة إلى المفضلة"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></button>
+            <div class="product-card__body">
+              <p class="product-card__cat">تورت وكيك</p>
+              <h3 class="product-card__title"><a href="#" data-demo-link>تورتة شوكولاتة بلجيكية</a></h3>
+              <p class="rating"><span class="rating__stars" aria-hidden="true">★</span><strong aria-hidden="true">4.8</strong><span aria-hidden="true">(84)</span><span class="visually-hidden">التقييم 4.8 من 5 من 84 تقييماً</span></p>
+              <p class="price"><span class="price__now">165&nbsp;<span class="currency">ر.س</span></span></p>
+              <button class="btn btn--cta btn--block" type="button" data-add-to-cart data-product="تورتة شوكولاتة بلجيكية"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bag"/></svg> أضف للسلة</button>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- التذييل -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="دار الحلا — الصفحة الرئيسية">
+          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#i-star8" fill="none" stroke="#E2B76A" stroke-width="2.6"/></svg>
+          <span class="logo__text"><span class="logo__name">دار الحلا</span><span class="logo__tag">حلويات وهدايا</span></span>
+        </a>
+        <p>حلويات سعودية وشرقية تُحضَّر يومياً، مغلّفة للهدايا وتوصل في الموعد الذي تختاره.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">تسوّق</h2>
+        <ul class="footer-links">
+          <li><a href="category.html">المعمول</a></li>
+          <li><a href="index.html#best-sellers">التورت والكيك</a></li>
+          <li><a href="category.html">التمور المحشية</a></li>
+          <li><a href="index.html#occasions">بوكسات الهدايا</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">معلومات وسياسات</h2>
+        <ul class="footer-links">
+          <li><a href="#" data-demo-link>سياسة الشحن والتوصيل</a></li>
+          <li><a href="#" data-demo-link>سياسة الاستبدال والاسترجاع</a></li>
+          <li><a href="#" data-demo-link>سياسة الخصوصية</a></li>
+          <li><a href="#" data-demo-link>الشروط والأحكام</a></li>
+          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">تواصل معنا</h2>
+        <ul class="footer-links">
+          <li><a href="#" data-demo-link data-whatsapp>واتساب</a></li>
+          <li><a href="#" data-demo-link>البريد الإلكتروني</a></li>
+          <li><a href="#" data-demo-link>انستقرام</a></li>
+          <li><a href="#" data-demo-link>سناب شات</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <ul class="pay-list" aria-label="طرق الدفع المقبولة">
+        <li class="pay pay--mada">مدى</li>
+        <li class="pay pay--apple">Apple Pay</li>
+        <li class="pay pay--visa">VISA</li>
+        <li class="pay pay--mc">Mastercard</li>
+        <li class="pay pay--tabby">تابي</li>
+      </ul>
+      <ul class="legal-ids">
+        <li>السجل التجاري: <span class="blank-field">&nbsp;</span></li>
+        <li>الرقم الضريبي: <span class="blank-field">&nbsp;</span></li>
+      </ul>
+      <p class="footer-demo">نموذج تصميم تجريبي — الأسماء والأسعار والصور توضيحية</p>
+      <p class="copyright">© 2026 دار الحلا (اسم تجريبي). جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- زر واتساب العائم -->
+<a class="wa-fab" href="#" data-demo-link data-whatsapp aria-label="تواصل معنا عبر واتساب">
+  <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>
+</a>
+
+<!-- رسالة التأكيد -->
+<div class="toast" role="status" aria-live="polite" data-toast>
+  <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>
+  <span data-toast-text></span>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
